@@ -17,5 +17,10 @@ namespace LittleHunter
         {
             gameSystems.Execute();
         }
+
+        private void OnApplicationQuit()
+        {
+            gameSystems.TearDown();
+        }
     }
 }
