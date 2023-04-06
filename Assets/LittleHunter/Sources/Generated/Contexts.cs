@@ -21,14 +21,26 @@ public partial class Contexts : Entitas.IContexts {
 
     static Contexts _sharedInstance;
 
+    public AudioContext audio { get; set; }
+    public FrameworkContext framework { get; set; }
     public GameContext game { get; set; }
+    public GameStateContext gameState { get; set; }
+    public GuiContext gui { get; set; }
     public InputContext input { get; set; }
+    public NetworkContext network { get; set; }
+    public SettingsContext settings { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { audio, framework, game, gameState, gui, input, network, settings }; } }
 
     public Contexts() {
+        audio = new AudioContext();
+        framework = new FrameworkContext();
         game = new GameContext();
+        gameState = new GameStateContext();
+        gui = new GuiContext();
         input = new InputContext();
+        network = new NetworkContext();
+        settings = new SettingsContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -63,8 +75,14 @@ public partial class Contexts {
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeContextObservers() {
         try {
+            CreateContextObserver(audio);
+            CreateContextObserver(framework);
             CreateContextObserver(game);
+            CreateContextObserver(gameState);
+            CreateContextObserver(gui);
             CreateContextObserver(input);
+            CreateContextObserver(network);
+            CreateContextObserver(settings);
         } catch(System.Exception) {
         }
     }
