@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class SettingsComponentsLookup {
 
+    public const int GameSettings = 0;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-
+        "GameSettings"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(GameSettingsComponent)
     };
 }
