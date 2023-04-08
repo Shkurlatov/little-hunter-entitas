@@ -8,15 +8,21 @@
 //------------------------------------------------------------------------------
 public static class NetworkComponentsLookup {
 
+    public const int ConnectionSuccessful = 0;
+    public const int PendingConnection = 1;
+    public const int ShouldConnect = 2;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-
+        "ConnectionSuccessful",
+        "PendingConnection",
+        "ShouldConnect"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(ConnectionSuccessfulComponent),
+        typeof(PendingConnectionComponent),
+        typeof(ShouldConnectComponent)
     };
 }
