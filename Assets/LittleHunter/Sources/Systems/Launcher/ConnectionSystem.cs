@@ -10,12 +10,18 @@ namespace LittleHunter.Launcher
         private readonly NetworkContext _networkContext;
         private readonly GameContext _gameContext;
         private readonly SettingsContext _settingsContext;
+        private readonly LauncherSystem _callbackCaller;
 
-        public ConnectionSystem(Contexts contexts) : base(contexts.network)
+        public ConnectionSystem(Contexts contexts, LauncherSystem callbackCaller) : base(contexts.network)
         {
             _networkContext = contexts.network;
             _gameContext = contexts.game;
             _settingsContext = contexts.settings;
+            _callbackCaller = callbackCaller;
+
+            _callbackCaller.onConnectedToMaster += OnConnectedToMaster;
+            _callbackCaller.onPhotonRandomJoinFailed += OnPhotonRandomJoinFailed;
+            _callbackCaller.onJoinedRoom += OnJoinedRoom;
         }
 
         protected override ICollector<NetworkEntity> GetTrigger(IContext<NetworkEntity> context)
@@ -48,6 +54,26 @@ namespace LittleHunter.Launcher
         public void Cleanup()
         {
             _networkContext.isPendingConnection = false;
+        }
+
+        private void OnConnectedToMaster()
+        {
+            PhotonNetwork.JoinRandomRoom();
+        }
+
+        private void OnPhotonRandomJoinFailed(object[] obj)
+        {
+            PhotonNetwork.CreateRoom("SandboxRoom", new Photon.Realtime.RoomOptions()
+            {
+                MaxPlayers = (byte)_settingsContext.gameSettings.value.NetworkConfig.MaxNumberOfPlayers
+            }, null);
+        }
+
+        private void OnJoinedRoom()
+        {
+            Debug.Log("Room Joined: " + PhotonNetwork.CurrentRoom.Name);
+            _networkContext.isPendingConnection = false;
+            _networkContext.isConnectionSuccessful = true;
         }
     }
 }
