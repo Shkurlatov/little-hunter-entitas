@@ -4,6 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LittleHunter/Scenes/Bootstrap.unity
+    guid: 0d42cbd759c447846952a28972b6cc79
+  - enabled: 1
+    path: Assets/LittleHunter/Scenes/Launcher.unity
+    guid: e282cd4f940dcfa41bae164d9dde53ed
+  - enabled: 1
+    path: Assets/LittleHunter/Scenes/Sandbox.unity
+    guid: 546750431d1174f4ca56b73043338fd5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8ef0cd721af0b80489fe6b6e974f0f60, type: 2}
