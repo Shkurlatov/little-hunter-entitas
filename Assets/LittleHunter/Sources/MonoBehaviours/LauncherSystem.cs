@@ -35,7 +35,7 @@ namespace LittleHunter.Launcher
             _systems.Add(new ConnectionSystem(_contexts, this));
             _systems.Add(new ConnectionUISystem(_contexts, loadingScreen));
 
-
+            _serverSystems.Add(new LoadingLobbySystem(_contexts));
         }
 
         private void Start()
