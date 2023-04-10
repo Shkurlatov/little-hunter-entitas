@@ -5,20 +5,20 @@ namespace LittleHunter
 {
     public sealed class RigidbodyDeactivator : MonoBehaviour
     {
-        private Rigidbody rigidbody;
-        private PhotonView photonView;
+        private Rigidbody _rigidbody;
+        private PhotonView _photonView;
 
         private void Awake()
         {
-            rigidbody = GetComponent<Rigidbody>();
-            photonView = GetComponent<PhotonView>();
+            _rigidbody = GetComponent<Rigidbody>();
+            _photonView = GetComponent<PhotonView>();
         }
 
         private void Start()
         {
-            if (!photonView.IsMine)
+            if (!_photonView.IsMine)
             {
-                rigidbody.isKinematic = true;
+                _rigidbody.isKinematic = true;
             }
         }
     }

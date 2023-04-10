@@ -8,15 +8,30 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int PlayerName = 0;
+    public const int GameView = 0;
+    public const int LocalPlayer = 1;
+    public const int PhotonView = 2;
+    public const int PhysicsView = 3;
+    public const int PlayerName = 4;
+    public const int SpawnPoint = 5;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "PlayerName"
+        "GameView",
+        "LocalPlayer",
+        "PhotonView",
+        "PhysicsView",
+        "PlayerName",
+        "SpawnPoint"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(PlayerNameComponent)
+        typeof(GameViewComponent),
+        typeof(LocalPlayerComponent),
+        typeof(PhotonViewComponent),
+        typeof(PhysicsViewComponent),
+        typeof(PlayerNameComponent),
+        typeof(SpawnPointComponent)
     };
 }
