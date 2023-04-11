@@ -13,11 +13,20 @@ namespace LittleHunter
         [Header("MultiplayerSettings"), Space(2f)]
         public NetworkPreset NetworkConfig;
 
+        [Header("Player Settings"), Space(2f)]
+        public PlayerSettings PlayerConfig;
+
         [Serializable]
         public class NetworkPreset
         {
             public int MaxNumberOfPlayers;
             public string RoomSceneName;
+        }
+
+        [Serializable]
+        public class PlayerSettings
+        {
+            public GameObject PlayerPrefab;
         }
     }
 }
