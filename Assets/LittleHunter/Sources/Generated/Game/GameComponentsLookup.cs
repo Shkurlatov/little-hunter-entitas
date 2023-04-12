@@ -10,28 +10,34 @@ public static class GameComponentsLookup {
 
     public const int GameView = 0;
     public const int LocalPlayer = 1;
-    public const int PhotonView = 2;
-    public const int PhysicsView = 3;
-    public const int PlayerName = 4;
-    public const int SpawnPoint = 5;
+    public const int MovementSpeed = 2;
+    public const int PhotonView = 3;
+    public const int PhysicsView = 4;
+    public const int PlayerName = 5;
+    public const int RotationSpeed = 6;
+    public const int SpawnPoint = 7;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "GameView",
         "LocalPlayer",
+        "MovementSpeed",
         "PhotonView",
         "PhysicsView",
         "PlayerName",
+        "RotationSpeed",
         "SpawnPoint"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(GameViewComponent),
         typeof(LocalPlayerComponent),
+        typeof(MovementSpeedComponent),
         typeof(PhotonViewComponent),
         typeof(PhysicsViewComponent),
         typeof(PlayerNameComponent),
+        typeof(RotationSpeedComponent),
         typeof(SpawnPointComponent)
     };
 }

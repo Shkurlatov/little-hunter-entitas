@@ -19,3 +19,5 @@ MonoBehaviour:
     RoomSceneName: Sandbox
   PlayerConfig:
     PlayerPrefab: {fileID: 1731700232971422374, guid: 470b6a1bbbda883479c34f0d2f60b2f9, type: 3}
+    MovementSpeed: 4.5
+    RotationSpeed: 15
