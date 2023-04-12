@@ -24,6 +24,7 @@ namespace LittleHunter
             _systems.Add(new CreateLocalPlayerSystem(_contexts));
 
             _physicSystems.Add(new MovePlayerSystem(_contexts));
+            _physicSystems.Add(new RotatePlayerSystem(_contexts));
         }
 
         private void Start()
