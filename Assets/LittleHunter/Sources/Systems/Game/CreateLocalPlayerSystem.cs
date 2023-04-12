@@ -28,6 +28,8 @@ namespace LittleHunter
             GameEntity localPlayer = _gameContext.localPlayerEntity;
             localPlayer.AddGameView(playerView, playerView.transform);
             localPlayer.AddPhysicsView(playerView.GetComponent<Rigidbody>());
+            localPlayer.AddMovementSpeed(_settingsContext.gameSettings.value.PlayerConfig.MovementSpeed);
+            localPlayer.AddRotationSpeed(_settingsContext.gameSettings.value.PlayerConfig.RotationSpeed);
             localPlayer.AddPhotonView(playerView.GetComponent<Photon.Pun.PhotonView>());
         }
     }
