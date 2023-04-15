@@ -493,11 +493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6bbce35420873449558343c145c550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints:
+  _spawnPoints:
   - {fileID: 684124705}
   - {fileID: 1028777833}
-  cameraRoot: {fileID: 2005360203}
-  cameraPivot: {fileID: 440094735}
+  _cameraRoot: {fileID: 2005360203}
+  _cameraPivot: {fileID: 440094735}
 --- !u!4 &731277640
 Transform:
   m_ObjectHideFlags: 0

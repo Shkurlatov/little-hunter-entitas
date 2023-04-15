@@ -7,9 +7,9 @@ namespace LittleHunter
 {
     public class SandboxSystem : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private List<Transform> spawnPoints;
-        [SerializeField] private Transform cameraRoot;
-        [SerializeField] private Transform cameraPivot;
+        [SerializeField] private List<Transform> _spawnPoints;
+        [SerializeField] private Transform _cameraRoot;
+        [SerializeField] private Transform _cameraPivot;
 
         private Systems _systems;
         private Contexts _contexts;
@@ -24,12 +24,13 @@ namespace LittleHunter
             _physicSystems = new Feature("Physics Systems");
             _lateFixedUpdateSystems = new Feature("Late Systems");
 
-            _systems.Add(new CreateSpawnPointSystem(_contexts, spawnPoints));
+            _systems.Add(new CreateSpawnPointSystem(_contexts, _spawnPoints));
             _systems.Add(new CreateLocalPlayerSystem(_contexts));
 
             _physicSystems.Add(new MovePlayerSystem(_contexts));
             _physicSystems.Add(new RotatePlayerSystem(_contexts));
-            _lateFixedUpdateSystems.Add(new CameraFollowTargetSystem(_contexts, cameraRoot));
+            _lateFixedUpdateSystems.Add(new CameraFollowTargetSystem(_contexts, _cameraRoot));
+            _lateFixedUpdateSystems.Add(new CameraRotateSystem(_contexts, _cameraRoot, _cameraPivot));
         }
 
         private void Start()
