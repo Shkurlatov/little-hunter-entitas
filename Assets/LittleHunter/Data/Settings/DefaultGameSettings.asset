@@ -21,3 +21,9 @@ MonoBehaviour:
     PlayerPrefab: {fileID: 1731700232971422374, guid: 470b6a1bbbda883479c34f0d2f60b2f9, type: 3}
     MovementSpeed: 4.5
     RotationSpeed: 15
+  CameraConfig:
+    CameraLookSpeed: 2
+    CameraPivotSpeed: 2
+    CameraSmoothTime: 0.3
+    MinimumPivotAngle: -25
+    MaximumPivotAngle: 45

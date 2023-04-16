@@ -16,6 +16,9 @@ namespace LittleHunter
         [Header("Player Settings"), Space(2f)]
         public PlayerSettings PlayerConfig;
 
+        [Header("Camera Settings"), Space(2f)]
+        public CameraSettings CameraConfig;
+
         [Serializable]
         public class NetworkPreset
         {
@@ -29,6 +32,16 @@ namespace LittleHunter
             public GameObject PlayerPrefab;
             public float MovementSpeed;
             public float RotationSpeed;
+        }
+
+        [Serializable]
+        public class CameraSettings
+        {
+            public float CameraLookSpeed;
+            public float CameraPivotSpeed;
+            public float CameraSmoothTime;
+            public float MinimumPivotAngle;
+            public float MaximumPivotAngle;
         }
     }
 }
