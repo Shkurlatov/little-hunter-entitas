@@ -29,6 +29,8 @@ namespace LittleHunter
 
             _physicSystems.Add(new MovePlayerSystem(_contexts));
             _physicSystems.Add(new RotatePlayerSystem(_contexts));
+            _physicSystems.Add(new UpdateMoveDirectionSystem(_contexts, Camera.main.transform));
+
             _lateFixedUpdateSystems.Add(new CameraFollowTargetSystem(_contexts, _cameraRoot));
             _lateFixedUpdateSystems.Add(new CameraRotateSystem(_contexts, _cameraRoot, _cameraPivot));
         }

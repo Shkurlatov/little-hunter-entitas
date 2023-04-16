@@ -13,14 +13,15 @@ public static class GameComponentsLookup {
     public const int CameraSmoothTime = 2;
     public const int GameView = 3;
     public const int LocalPlayer = 4;
-    public const int MovementSpeed = 5;
-    public const int PhotonView = 6;
-    public const int PhysicsView = 7;
-    public const int PlayerName = 8;
-    public const int RotationSpeed = 9;
-    public const int SpawnPoint = 10;
+    public const int MoveDirection = 5;
+    public const int MovementSpeed = 6;
+    public const int PhotonView = 7;
+    public const int PhysicsView = 8;
+    public const int PlayerName = 9;
+    public const int RotationSpeed = 10;
+    public const int SpawnPoint = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "CameraLookSpeed",
@@ -28,6 +29,7 @@ public static class GameComponentsLookup {
         "CameraSmoothTime",
         "GameView",
         "LocalPlayer",
+        "MoveDirection",
         "MovementSpeed",
         "PhotonView",
         "PhysicsView",
@@ -42,6 +44,7 @@ public static class GameComponentsLookup {
         typeof(CameraSmoothTimeComponent),
         typeof(GameViewComponent),
         typeof(LocalPlayerComponent),
+        typeof(MoveDirectionComponent),
         typeof(MovementSpeedComponent),
         typeof(PhotonViewComponent),
         typeof(PhysicsViewComponent),

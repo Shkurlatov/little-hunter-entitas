@@ -1,5 +1,6 @@
-using Entitas;
 using UnityEngine;
+using Entitas;
+using Entitas.Unity;
 
 namespace LittleHunter
 {
@@ -19,11 +20,8 @@ namespace LittleHunter
             _gameContext.isLocalPlayer = true;
 
             GameObject playerView = Photon.Pun.PhotonNetwork.Instantiate(
-                _settingsContext.gameSettings.value.PlayerConfig.PlayerPrefab.name,
-                _gameContext.spawnPoint.position,
-                _gameContext.spawnPoint.rotation,
-                0
-                );
+                _settingsContext.gameSettings.value.PlayerConfig.PlayerPrefab.name, 
+                _gameContext.spawnPoint.position, _gameContext.spawnPoint.rotation, 0);
 
             GameEntity localPlayer = _gameContext.localPlayerEntity;
             localPlayer.AddGameView(playerView, playerView.transform);
@@ -31,6 +29,9 @@ namespace LittleHunter
             localPlayer.AddMovementSpeed(_settingsContext.gameSettings.value.PlayerConfig.MovementSpeed);
             localPlayer.AddRotationSpeed(_settingsContext.gameSettings.value.PlayerConfig.RotationSpeed);
             localPlayer.AddPhotonView(playerView.GetComponent<Photon.Pun.PhotonView>());
+            localPlayer.AddMoveDirection(Vector3.zero);
+
+            playerView.Link(localPlayer);
         }
     }
 }
