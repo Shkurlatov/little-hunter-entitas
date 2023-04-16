@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef384963fc4a30469280eb432246565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bootstrapGameObject: {fileID: 834764879}
-  logoImage: {fileID: 1442869966}
+  _bootstrapGameObject: {fileID: 834764879}
+  _logoImage: {fileID: 1442869966}
 --- !u!1 &834764879
 GameObject:
   m_ObjectHideFlags: 0
