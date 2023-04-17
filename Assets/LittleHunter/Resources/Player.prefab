@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 58019f40d639a1f44ba5cc6d23449894, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 9275fc6e193f0bf4a9585001d30ee411, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9275fc6e193f0bf4a9585001d30ee411, type: 3}
 --- !u!4 &728099438009609998 stripped
@@ -260,3 +264,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9275fc6e193f0bf4a9585001d30ee411, type: 3}
   m_PrefabInstance: {fileID: 8592479250577449239}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8935132364692544582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9275fc6e193f0bf4a9585001d30ee411, type: 3}
+  m_PrefabInstance: {fileID: 8592479250577449239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &812706168766028222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935132364692544582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsMoving
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
