@@ -30,6 +30,7 @@ namespace LittleHunter
                     moveDirection.y = 0;
                     moveDirection *= entity.movementSpeed.value;
                     entity.ReplaceMoveDirection(moveDirection);
+                    entity.isMoving = moveDirection != Vector3.zero;
                 }
             }
         }
