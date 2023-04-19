@@ -30,6 +30,8 @@ namespace LittleHunter
             localPlayer.AddRotationSpeed(_settingsContext.gameSettings.value.PlayerConfig.RotationSpeed);
             localPlayer.AddPhotonView(playerView.GetComponent<Photon.Pun.PhotonView>());
             localPlayer.AddMoveDirection(Vector3.zero);
+            localPlayer.AddAnimatorView(playerView.GetComponentInChildren<Animator>());
+            localPlayer.isMoving = false;
 
             playerView.Link(localPlayer);
         }

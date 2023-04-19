@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LittleHunter.Launcher
+namespace LittleHunter
 {
     public static class Constants
     {

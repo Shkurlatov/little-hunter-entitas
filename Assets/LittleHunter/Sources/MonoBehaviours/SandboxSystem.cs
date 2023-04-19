@@ -26,6 +26,7 @@ namespace LittleHunter
 
             _systems.Add(new CreateSpawnPointSystem(_contexts, _spawnPoints));
             _systems.Add(new CreateLocalPlayerSystem(_contexts));
+            _systems.Add(new UpdateAnimatorSystem(_contexts));
 
             _physicSystems.Add(new MovePlayerSystem(_contexts));
             _physicSystems.Add(new RotatePlayerSystem(_contexts));
