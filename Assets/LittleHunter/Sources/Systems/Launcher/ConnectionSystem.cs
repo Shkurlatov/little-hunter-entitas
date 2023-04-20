@@ -47,6 +47,8 @@ namespace LittleHunter.Launcher
                     PhotonNetwork.ConnectUsingSettings();
                 }
 
+                PhotonNetwork.NickName = _gameContext.playerName.value;
+
                 _networkContext.isPendingConnection = true;
             }
         }
