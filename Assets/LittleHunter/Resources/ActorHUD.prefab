@@ -755,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274913237740142284}
   - component: {fileID: 494653216692317115}
+  - component: {fileID: 2763076701618266829}
   - component: {fileID: 3110206333701573193}
   - component: {fileID: 252290370495787313}
   m_Layer: 5
@@ -800,6 +801,18 @@ MonoBehaviour:
   _actorTitleText: {fileID: 268936472432096256}
   _actorNameText: {fileID: 8586602942242052959}
   _actorDamageText: {fileID: 7127289714630843553}
+--- !u!114 &2763076701618266829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487580454832292418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411360cf07694e84599edd00bfe3c7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &3110206333701573193
 Canvas:
   m_ObjectHideFlags: 0
