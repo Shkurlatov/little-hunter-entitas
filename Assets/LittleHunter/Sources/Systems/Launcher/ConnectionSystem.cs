@@ -19,9 +19,9 @@ namespace LittleHunter.Launcher
             _settingsContext = contexts.settings;
             _callbackCaller = callbackCaller;
 
-            _callbackCaller.onConnectedToMaster += OnConnectedToMaster;
-            _callbackCaller.onPhotonRandomJoinFailed += OnPhotonRandomJoinFailed;
-            _callbackCaller.onJoinedRoom += OnJoinedRoom;
+            _callbackCaller.OnPhotonConnectedToMaster += OnConnectedToMaster;
+            _callbackCaller.OnPhotonRandomJoinFailed += OnPhotonRandomJoinFailed;
+            _callbackCaller.OnPhotonJoinedRoom += OnJoinedRoom;
         }
 
         protected override ICollector<NetworkEntity> GetTrigger(IContext<NetworkEntity> context)

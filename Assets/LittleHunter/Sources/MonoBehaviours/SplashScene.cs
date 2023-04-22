@@ -11,7 +11,7 @@ namespace LittleHunter
         [SerializeField] private GameObject _bootstrapGameObject;
         [SerializeField] private Image _logoImage;
 
-        private readonly Stopwatch _stopwatch = new Stopwatch();
+        private readonly Stopwatch _stopwatch = new();
         private bool _isLoading;
 
         private void Awake()

@@ -301,8 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f60599f20c41049aafc6f999451ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSceneName: Launcher
-  gameSettings: {fileID: 11400000, guid: b1ee1f2532c27ed4e96b43e0f0b18b41, type: 2}
+  _firstSceneName: Launcher
+  GameSettings: {fileID: 11400000, guid: b1ee1f2532c27ed4e96b43e0f0b18b41, type: 2}
 --- !u!4 &834764881
 Transform:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
+  far clip plane: 150
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -513,4 +513,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e78e4ecefc4d564e9f37f66c8934288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashScene: {fileID: 357755622}
+  _splashScene: {fileID: 357755622}
