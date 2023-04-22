@@ -5,8 +5,8 @@ namespace LittleHunter
 {
     public sealed class Bootstrap : MonoBehaviour
     {
-        [SerializeField] private string firstSceneName;
-        public GameSettingsData gameSettings;
+        [SerializeField] private string _firstSceneName;
+        public GameSettingsData GameSettings;
 
         private Contexts _contexts;
         private SettingsContext _settingsContext;
@@ -36,7 +36,7 @@ namespace LittleHunter
         private void Start()
         {
             _gameSystems.Initialize();
-            SceneManager.LoadSceneAsync(firstSceneName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(_firstSceneName, LoadSceneMode.Additive);
         }
 
         private void Update()
@@ -46,7 +46,7 @@ namespace LittleHunter
 
         private void LoadSettings()
         {
-            _settingsContext.SetGameSettings(gameSettings);
+            _settingsContext.SetGameSettings(GameSettings);
         }
 
         private void OnApplicationQuit()

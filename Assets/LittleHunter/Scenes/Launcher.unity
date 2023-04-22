@@ -1654,9 +1654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac78946d7af684f419726f21835f01a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNameField: {fileID: 360431174}
-  startConnectButton: {fileID: 1018094286}
-  loadingScreen: {fileID: 1376341959}
+  _playerNameField: {fileID: 360431174}
+  _startConnectButton: {fileID: 1018094286}
+  _loadingScreen: {fileID: 1376341959}
 --- !u!1 &2053655777
 GameObject:
   m_ObjectHideFlags: 0

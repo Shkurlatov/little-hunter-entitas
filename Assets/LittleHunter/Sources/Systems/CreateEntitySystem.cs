@@ -4,16 +4,16 @@ namespace LittleHunter
 {
     public class CreateEntitySystem : IInitializeSystem
     {
-        private readonly Contexts contexts;
+        private readonly Contexts _contexts;
 
         public CreateEntitySystem(Contexts contexts)
         {
-            this.contexts = contexts;
+            this._contexts = contexts;
         }
 
         public void Initialize()
         {
-            contexts.game.CreateEntity();
+            _contexts.game.CreateEntity();
         }
     }
 }

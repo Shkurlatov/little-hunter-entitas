@@ -5,30 +5,30 @@ namespace LittleHunter
 {
     public class EmitInputSystem : IInitializeSystem, IExecuteSystem, ITearDownSystem
     {
-        private InputContext inputContext;
-        private IInputService inputService;
+        private readonly InputContext _inputContext;
+        private readonly IInputService _inputService;
 
         public EmitInputSystem(Contexts contexts, IInputService inputService)
         {
-            inputContext = contexts.input;
-            this.inputService = inputService;
+            _inputContext = contexts.input;
+            _inputService = inputService;
         }
 
         public void Initialize()
         {
-            inputContext.SetMoveInput(Vector2.zero);
-            inputContext.SetLookInput(Vector2.zero);
+            _inputContext.SetMoveInput(Vector2.zero);
+            _inputContext.SetLookInput(Vector2.zero);
         }
 
         public void Execute()
         {
-            inputContext.ReplaceMoveInput(inputService.GetMovement);
-            inputContext.ReplaceLookInput(inputService.GetLook);
+            _inputContext.ReplaceMoveInput(_inputService.GetMovement);
+            _inputContext.ReplaceLookInput(_inputService.GetLook);
         }
 
         public void TearDown()
         {
-            inputService.Dispose();
+            _inputService.Dispose();
         }
     }
 }

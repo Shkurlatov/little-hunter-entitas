@@ -4,8 +4,7 @@ namespace LittleHunter
 {
     public sealed class PreBootstrap : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject splashScene;
+        [SerializeField] private GameObject _splashScene;
 
         private void Awake()
         {
@@ -14,7 +13,7 @@ namespace LittleHunter
 
         private void BootstrapStart()
         {
-            splashScene.SetActive(true);
+            _splashScene.SetActive(true);
             gameObject.SetActive(false);
         }
     }

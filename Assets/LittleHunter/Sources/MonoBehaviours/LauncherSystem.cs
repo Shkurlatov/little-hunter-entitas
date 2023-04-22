@@ -9,18 +9,18 @@ namespace LittleHunter.Launcher
 {
     public sealed class LauncherSystem : MonoBehaviourPunCallbacks
     {
-        [SerializeField] private TMP_InputField playerNameField;
-        [SerializeField] private Button startConnectButton;
-        [SerializeField] private CanvasGroup loadingScreen;
+        [SerializeField] private TMP_InputField _playerNameField;
+        [SerializeField] private Button _startConnectButton;
+        [SerializeField] private CanvasGroup _loadingScreen;
 
-        public event Action onConnectedToMaster;
-        public event Action<object[]> onPhotonRandomJoinFailed;
-        public event Action onJoinedRoom;
+        public event Action OnPhotonConnectedToMaster;
+        public event Action<object[]> OnPhotonRandomJoinFailed;
+        public event Action OnPhotonJoinedRoom;
 
         private Systems _systems;
         private Systems _serverSystems;
         private Contexts _contexts;
-        private bool serverSystemInitialized = false;
+        private bool _serverSystemInitialized = false;
 
         private void Awake()
         {
@@ -30,10 +30,10 @@ namespace LittleHunter.Launcher
             _systems = new Feature("Launcher Systems");
             _serverSystems = new Feature("Server Systems");
 
-            _systems.Add(new InitializePlayerNameSystem(_contexts, playerNameField));
-            _systems.Add(new InitializeStartButtonSystem(_contexts, startConnectButton));
+            _systems.Add(new InitializePlayerNameSystem(_contexts, _playerNameField));
+            _systems.Add(new InitializeStartButtonSystem(_contexts, _startConnectButton));
             _systems.Add(new ConnectionSystem(_contexts, this));
-            _systems.Add(new ConnectionUISystem(_contexts, loadingScreen));
+            _systems.Add(new ConnectionUISystem(_contexts, _loadingScreen));
 
             _serverSystems.Add(new LoadingLobbySystem(_contexts));
         }
@@ -47,9 +47,9 @@ namespace LittleHunter.Launcher
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                if (!serverSystemInitialized)
+                if (!_serverSystemInitialized)
                 {
-                    serverSystemInitialized = true;
+                    _serverSystemInitialized = true;
                     _serverSystems.Initialize();
                 }
 
@@ -65,20 +65,21 @@ namespace LittleHunter.Launcher
 
         public override void OnConnectedToMaster()
         {
-            onConnectedToMaster?.Invoke();
+            OnPhotonConnectedToMaster?.Invoke();
         }
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
             var codeAndMsg = new object[] { returnCode, message };
 
-            onPhotonRandomJoinFailed?.Invoke(codeAndMsg);
+            OnPhotonRandomJoinFailed?.Invoke(codeAndMsg);
         }
 
         public override void OnJoinedRoom()
         {
-            onJoinedRoom?.Invoke();
+            OnPhotonJoinedRoom?.Invoke();
         }
+
         #endregion
     }
 }

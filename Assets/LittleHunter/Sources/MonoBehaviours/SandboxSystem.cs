@@ -11,8 +11,8 @@ namespace LittleHunter
         [SerializeField] private Transform _cameraRoot;
         [SerializeField] private Transform _cameraPivot;
 
-        private Systems _systems;
         private Contexts _contexts;
+        private Systems _systems;
 
         private Systems _physicSystems;
         private Systems _lateFixedUpdateSystems;

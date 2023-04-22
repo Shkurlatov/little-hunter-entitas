@@ -5,52 +5,52 @@ namespace LittleHunter
 {
     public class UnityInputServiceImplementation : IInputService
     {
-        private readonly UnityInput input;
-        private Vector2 movement = Vector2.zero;
-        private Vector2 look = Vector2.zero;
+        private readonly UnityInput _input;
+        private Vector2 _movement = Vector2.zero;
+        private Vector2 _look = Vector2.zero;
 
         public Vector2 GetMovement
         {
-            get { return movement; }
+            get { return _movement; }
         }
 
 
         public Vector2 GetLook
         {
-            get { return look; }
+            get { return _look; }
         }
 
         public UnityInputServiceImplementation()
         {
-            if (input == null)
+            if (_input == null)
             {
-                input = new UnityInput();
+                _input = new UnityInput();
 
-                input.Player.Move.performed += Move;
-                input.Player.Move.canceled += Move;
+                _input.Player.Move.performed += Move;
+                _input.Player.Move.canceled += Move;
 
-                input.Player.Look.performed += Look;
-                input.Player.Look.canceled += Look;
+                _input.Player.Look.performed += Look;
+                _input.Player.Look.canceled += Look;
 
-                input.Player.Enable();
+                _input.Player.Enable();
             }
         }
 
         private void Move(InputAction.CallbackContext ctx)
         {
-            movement = ctx.ReadValue<Vector2>();
+            _movement = ctx.ReadValue<Vector2>();
         }
 
         private void Look(InputAction.CallbackContext ctx)
         {
-            look = ctx.ReadValue<Vector2>();
+            _look = ctx.ReadValue<Vector2>();
         }
 
         public void Dispose()
         {
-            if (input.Player.enabled)
+            if (_input.Player.enabled)
             {
-                input.Player.Disable();
+                _input.Player.Disable();
             }
         }
     }
