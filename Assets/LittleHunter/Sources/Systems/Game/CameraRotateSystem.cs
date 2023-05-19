@@ -1,5 +1,6 @@
 using UnityEngine;
 using Entitas;
+using UnityEngine.InputSystem;
 
 namespace LittleHunter
 {
@@ -11,10 +12,8 @@ namespace LittleHunter
         private readonly Transform _cameraTransform;
         private readonly Transform _cameraPivotTransform;
 
-        private float _lookAngle;
-        private float _pivotAngle;
-        private float _minimumPivotAngle;
-        private float _maximumPivotAngle;
+        private Transform _targetTransform;
+        private float _cameraRotationAxis = default;
 
         public CameraRotateSystem(Contexts contexts, Transform cameraTransform, Transform cameraPivotTransform)
         {
@@ -27,33 +26,42 @@ namespace LittleHunter
 
         public void Initialize()
         {
-            _minimumPivotAngle = _settingsContext.gameSettings.value.CameraConfig.MinimumPivotAngle;
-            _maximumPivotAngle = _settingsContext.gameSettings.value.CameraConfig.MaximumPivotAngle;
+            _targetTransform = _gameContext.localPlayerEntity.gameView.transform;
             _gameContext.ReplaceCameraLookSpeed(_settingsContext.gameSettings.value.CameraConfig.CameraLookSpeed);
-            _gameContext.ReplaceCameraPivotSpeed(_settingsContext.gameSettings.value.CameraConfig.CameraPivotSpeed);
         }
 
         public void Execute()
         {
             if (_gameContext.isLocalPlayer)
             {
-                Vector2 axesValue = _inputContext.lookInput.value;
+                Vector2 axesValues = _inputContext.lookInput.value;
 
-                _lookAngle += axesValue.x * _gameContext.cameraLookSpeed.value;
-                _pivotAngle -= axesValue.y * _gameContext.cameraPivotSpeed.value;
-                _pivotAngle = Mathf.Clamp(_pivotAngle, _minimumPivotAngle, _maximumPivotAngle);
+                if (axesValues.x != 0)
+                {
+                    if (IsKeyboardOrMouse())
+                    {
+                        _cameraRotationAxis += axesValues.x * _gameContext.cameraLookSpeed.value * Time.deltaTime;
+                    }
+                    else
+                    {
+                        _cameraRotationAxis += axesValues.x * _gameContext.cameraLookSpeed.value;
+                    }
 
-                Vector3 rotation = Vector3.zero;
-                rotation.y = _lookAngle;
-                Quaternion targetRotation = Quaternion.Euler(rotation);
-                _cameraTransform.rotation = targetRotation;
-
-                rotation = Vector3.zero;
-                rotation.x = _pivotAngle;
-
-                targetRotation = Quaternion.Euler(rotation);
-                _cameraPivotTransform.localRotation = targetRotation;
+                    _cameraTransform.eulerAngles = new Vector3(
+                        _targetTransform.eulerAngles.x,
+                        _cameraRotationAxis,
+                        _targetTransform.eulerAngles.z);
+                }
             }
+        }
+
+        private bool IsKeyboardOrMouse()
+        {
+            return Keyboard.current.anyKey.isPressed
+                || Mouse.current.leftButton.isPressed
+                || Mouse.current.rightButton.isPressed
+                || Mouse.current.middleButton.isPressed
+                || Mouse.current.delta.ReadValue() != default;
         }
     }
 }

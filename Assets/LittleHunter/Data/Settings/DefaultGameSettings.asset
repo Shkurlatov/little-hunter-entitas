@@ -22,7 +22,7 @@ MonoBehaviour:
     MovementSpeed: 4.5
     RotationSpeed: 15
   CameraConfig:
-    CameraLookSpeed: 2
+    CameraLookSpeed: 10
     CameraPivotSpeed: 2
     CameraSmoothTime: 0.3
     MinimumPivotAngle: -25
